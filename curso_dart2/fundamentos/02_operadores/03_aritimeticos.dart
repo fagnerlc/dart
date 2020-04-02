@@ -40,7 +40,6 @@ main(List<String> args) {
 
   var nome = null;
   print('nome: ${nome ?? 'Fagner'}\n'); // se a variavel for nula recebe o valor string
-
   var numero = 12;
   var par = numero % 2 == 0; // mostra o resto da divisao
   var impar = numero % 2 != 0; 
