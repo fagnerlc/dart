@@ -1,4 +1,4 @@
-import 'usuario.dart';
+import '02_usuario.dart';
 
 ///
 /// Encapsuladores são usados para proteger os atributos e variaveis
