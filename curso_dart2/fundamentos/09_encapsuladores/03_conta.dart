@@ -35,6 +35,7 @@ class Conta {
       print('Permissao negada! Ateracao: Limite do titular!');
     }
   }
+  
 
   // getter e setter costumizaveis
   String get informacao => 'Titular ${_nome} NºConta: ${numeroConta} Saldo atualizado: ${_saldo}';
