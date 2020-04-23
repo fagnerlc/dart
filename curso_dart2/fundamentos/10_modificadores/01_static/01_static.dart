@@ -30,6 +30,6 @@ void main(List<String> args) {
   print('Retornos iguais: ${Calculos.areaCirculoEstatico(raio) == Calculos().areaCirculo(raio) ? 'Sim' : 'Nao'} Metodos diferentes!');
 
 
-  Calculos calc3 = Calculos();
+  //Calculos calc3 = Calculos();
 }
 
