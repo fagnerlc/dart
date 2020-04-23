@@ -8,6 +8,8 @@
   - As variaveis devem ser final ou static const
 */
 
+import '02_brasil.dart';
+
 void main(List<String> args) {
   print('10.3) Modificadores Const');
 
@@ -36,12 +38,4 @@ void main(List<String> args) {
   var pais = new Brasil(-15.792371, -47.882326);
   print('\nObjeto: $pais capital: ${Brasil.capital} latitute: ${pais.latitute} longitude: ${pais.longitude}');
   print('Estados: ${Brasil.estados}');
-}
-
-class Brasil {
-  final double latitute;
-  final double longitude;
-  static const String capital = 'Brasilia';
-  static const estados = ['SP', 'RJ', 'MG', '...'];
-  const Brasil(this.latitute, this.longitude);
 }
