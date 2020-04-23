@@ -8,7 +8,7 @@
 import '02_calculos.dart';
 
 void main(List<String> args) {
-  print('10.0) Modificadores Static \n');
+  print('10.1) Modificadores Static \n');
 
   double raio = 5;
   var calc1 = new Calculos();
