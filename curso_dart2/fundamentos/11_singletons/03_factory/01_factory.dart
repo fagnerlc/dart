@@ -26,6 +26,16 @@ singletonFactory() {
 }
 
 singletonInstance(){
+  print('11.4) Singleton Instancia\n');
+
+  var p1 = new PessoaInstancia(nome:'Fagner');
+  print('nome: ${p1.nome} id: ${p1.identidade}');
+  var p2 = PessoaInstancia(nome:'Lorena', identidade: 1234567);
+  print('nome2: ${p2.nome} id: ${p2.identidade}');
+  p2.nome = 'Fagner Carvalho';
+  print('nome: ${p1.nome} id: ${p1.identidade}');
+  print(identical(p1,p2));
+  //print(p2==PessoaInstancia.instancia); // para comparar é necessário tirar o privado _ da instancia na classe pessoa
 
 }
 
