@@ -17,6 +17,9 @@ void main(List<String> args) {
   var cao = Cao.domestico('Chloe', 'Maltes','Femea');
   print('nome: ${cao.nome} raca: ${cao.raca} sexo: ${cao.sexo} idade: ${cao.idade} docil: ${cao.docil}');
   //var animal = Animal.vertebrados('0');
-  print('desenvolvimento: ${cao.desenvolvimento} tipo: ${cao.coluna ? 'Ver'}');
+  print('desenvolvimento: ${cao.desenvolvimento} tipo: ${cao.coluna ? 'Vertebrado' : 'Invertebrado'}');
+  cao..dormir()..alimentar()..reproduzir()..acao();
+  print(cao);
+  print('${cao.nome} ${cao.docil ? 'está amigavel' : 'não está amigavel'}');
 
 }

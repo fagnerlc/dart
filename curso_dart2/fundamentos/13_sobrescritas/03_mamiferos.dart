@@ -19,4 +19,7 @@ abstract class Mamiferos extends Animal{
     print('Se alimenta!');    
     print('como um');
   }
+  
+  // metodos sem escopo em classes abstratas devem ser sobrescritos em classes herdeiras
+  void reproduzir(); // sem escopo quer dizer vazio
 }
