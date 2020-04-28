@@ -9,6 +9,7 @@
  */
 
 import '04_cao.dart';
+import '06_abelha.dart';
 
 void main(List<String> args) {
   print('13.1) Sobrescritas de Metodos Atributos e Construtores');
@@ -22,8 +23,13 @@ void main(List<String> args) {
   print(cao);
   print('${cao.nome} ${cao.docil ? 'está amigavel' : 'não está amigavel'}');
 
+
   //? Desafio: Criar uma classe Abelha que herda de Artropodes com os construtores (insetos, aracnideos e crustaceos)
   //? que herde Animal no construtor Invertebrados!
+
+  var abelha = Abelha('Abelhinha','Africana','Femea');
+  print(abelha);
+  abelha..picar();
 
 
 }
