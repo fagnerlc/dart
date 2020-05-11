@@ -143,12 +143,92 @@ listEvery(){
 
 }
 
+/// 
+/// * Where:
+///   - Filtra os elementos da coleção criando uma nova do mesmo tamanho ou menor
+///   - é chamado de Filter por outras linguagens
+listWhere(){
+  print('16.5) List Where\n');
+
+  List<int> idades = [36,12,18,31,17,23];
+  print("where 01:${idades.where((e) => e is int)}");
+  print("where 02:${idades.where((e) => e is int).toString()}");
+  print(idades.whereType<int>());
+  List<int> adultos = idades.where((int e)=> e > 17).toList();
+  var crianca = idades.singleWhere((int element) => element < 12, orElse: ()=> 0); // singleWhere tem que ter pelo menos um elemento que satisfaça a busca/ 
+  int menor = idades.lastWhere((element) => element.toString().startsWith('1'));
+  int menor1 = idades.firstWhere((element) => element.toString().startsWith('0'), orElse: ()=> null);
+
+  print('adultos: ${adultos} menor: $menor, $menor1 crianca: $crianca');
+
+
+  List<dynamic> dinamico = [1,7,'abc'];
+  print("where 07:${dinamico.where((e) => e is int)}");
+}
+
+///
+/// * Reduce
+///   - Compara os elementos da colecao retornando 1 unico elemento resultante!
+///   - Ao interagir com os elementos o indice 0 se  torna o anterior, indice 1 se torna o atual.
+listReduce(){
+  print('16.6) List Reduce');
+
+  List<int> numerosPares = List.generate(7, (index) => index * 2);
+  print(numerosPares);
+
+  //int resultado = numerosPares.reduce((anterior, atual) => anterior + atual); // o retorno será o próximo anterior
+  
+  int resultado = numerosPares.reduce((anterior, atual) { 
+    print('$anterior + $atual');
+    return anterior + atual; // o retorno será o próximo anterior
+  }); 
+  print(resultado);
+
+  List<bool> boleanas = [true, false, !true, !false];
+  bool and = boleanas.reduce((anterior, atual) =>  anterior && atual);
+  bool or = boleanas.reduce((anterior, atual) =>  anterior || atual);
+  print('and: $and or: $or');
+
+  List<int> idades = [36,12,18,31,17,23];
+  int maisNovo = idades.reduce((anterior, atual) => (anterior > atual) ? atual : anterior);
+  int maisVelho = idades.reduce((anterior, atual) => (anterior < atual) ? atual : anterior);
+  int media = idades.reduce((anterior, atual) => anterior + atual);
+  print('mais novo: $maisNovo mais velho: $maisVelho media: ${(media / idades.length).toStringAsFixed(1)}');
+
+}
+
+///
+/// * Fold
+///   - Compara os elementos da colecao retornando 1 unico elemento resultante!
+///   - O valor inicial se torna o anterior e o indice 0 se torna o atual.
+/// 
+
+
+listFold(){
+  print('16.7) List Fold\n');
+  List<int> numerosPares = List.generate(6, (index) => index * 2);
+  print(numerosPares);
+  int valorInicial = 10;
+  int resultado = numerosPares.fold(valorInicial, (anterior, atual) {
+    print('$anterior + $atual');
+    return anterior + atual;
+  });
+  print('resultado\n');
+
+  valorInicial = 30;
+  resultado = numerosPares.fold(valorInicial, (anterior, atual) {
+    print('$anterior - $atual');
+    return anterior - atual;
+  });
+  print(resultado);
+}
+
 main(List<String> args) {
   listForEach();
-
   listExpand();
-
   listMap();
-
   listEvery();
+  listWhere();
+  listReduce();
+  listFold();
 }
