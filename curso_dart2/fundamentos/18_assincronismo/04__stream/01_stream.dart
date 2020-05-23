@@ -98,8 +98,8 @@ model() {
         print('Inscrito1 Completo!');
       });
 
-      var pares = (e)=> e % 2 == 0;
-      var mapear = (e) => '$e é par';
+  var pares = (e) => e % 2 == 0;
+  var mapear = (e) => '$e é par';
 
   // modificar eventos
   final inscrito2 = minhaStream.where(pares).map(mapear).listen(
@@ -114,25 +114,51 @@ model() {
         print('Inscrito2 Completo!');
       });
 
-      // gerenciar os inscritos
-      for (var i = 1; i <= 3; i++){
-        Future.delayed(Duration(seconds: i),(){
-          if(i == 1) inscrito1.pause();
-          if(i == 2) inscrito1.resume();
-          if(i == 3) inscrito1.cancel();
-        });
-      }
+  // gerenciar os inscritos
+  for (var i = 1; i <= 3; i++) {
+    Future.delayed(Duration(seconds: i), () {
+      if (i == 1) inscrito1.pause();
+      if (i == 2) inscrito1.resume();
+      if (i == 3) inscrito1.cancel();
+    });
+  }
 }
 
 ///
 /// * METODOS
 ///
 
-metodos(){
-  print('\n18.4.3) Metodos\n');
+metodos() async {
+  print('\n18.4.3) Stream Metodos e Ouvintes\n');
+  var stream = Stream<dynamic>.periodic(Duration(seconds: 1), (e) => e + 1)
+      .take(5) // take especifica quantos elementos eu quero pegar
+      .asBroadcastStream(); 
 
-  
+  stream = stream
+      .takeWhile((element) => element <= 5)
+      .skipWhile((element) => element > 3)
+      .take(3)
+      .map((event) => event.toString().padLeft(2, '0'));
 
+  // ouvintes
+  stream.listen((event) {
+    print('listen: $event');
+  }, onDone: () {
+    print('Contagem finalizada!');
+  });
+  //stream.forEach((element) {
+  //  print('ForEache: $element');
+  //});
+//
+  //await for (dynamic event in stream) {
+  //  print('forIn: $event');
+  //}
+
+  //List<dynamic> eventos = await stream.toList();
+  //print(eventos);
+
+  Future<List<dynamic>> eventosFuturos = stream.toList();
+  print(await eventosFuturos);
 }
 
 main() {
