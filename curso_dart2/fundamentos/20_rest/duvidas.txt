@@ -1,0 +1,19 @@
+/*
+DUVIDAS E REFERENCIAS:
+
+json.decode == jsonDecode
+https://api.dartlang.org/stable/2.2.0/dart-convert/jsonDecode.html
+
+Serialização com bibliotecas
+https://flutter.dev/docs/development/data-and-backend/json
+
+Conversor JSON
+https://javiercbk.github.io/json_to_dart/
+https://github.com/javiercbk/json_to_dart/issues/16 (BUG Array com Objetos)
+
+Validação de JSON
+https://jsonformatter.curiousconcept.com/
+
+HTTPS Codes
+https://github.com/waldemarnt/http-status-codes
+*/
