@@ -1,21 +1,21 @@
 import '09_caracteristicas_veiculos.dart';
 import '10_multas.dart';
 
-class Veiculos {
+class Veiculo {
   String marca;
   String modelo;
   CaracteristicasVeiculos caracteristicasVeiculos;
   List<Multas> multas;
 
-  Veiculos(
+  Veiculo(
       {this.marca, this.modelo, this.caracteristicasVeiculos, this.multas});
 
-  Veiculos.fromJson(Map<String, dynamic> json)
+  Veiculo.fromJson(Map<String, dynamic> json)
       : this(
           marca: json['marca'],
           modelo: json['modelo'],
-          caracteristicasVeiculos: json['caracteristicasVeiculos'],
-          multas: json['multas'],
+          caracteristicasVeiculos: CaracteristicasVeiculos.fromJson(json['caracteristicas']),
+          multas: (json['multas'] as List).map((e) => Multas.fromJson(e)).toList() ,
         );
 
   Map<String, dynamic> toJson() {

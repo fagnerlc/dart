@@ -11,7 +11,7 @@ class Conjuge {
       : this(
           nome: json['nome'],
           idade: json['idade'],
-          parentes: json['parentes'],
+          parentes: Parentes.fromJson(json['parentes']),
         );
 
   Map<String, dynamic> toJson() {

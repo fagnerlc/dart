@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import '02_pessoa.dart';
+
 main() {
   String jsonData = '''
     {
@@ -108,10 +110,21 @@ main() {
       }
       ''';
 
-    Map<String, dynamic>  parsedJson = jsonDecode(jsonData);
-    print(parsedJson);
 
-      //! Regra 01 identifique e crie as classes de acordo com o json.
-      //! Regra 02 crie os construtores do mais profundo ate a raiz.
-      //! Regra 03 faca o tratamento de erros.
+  //! Regra 01 identifique e crie as classes de acordo com o json.
+  //! Regra 02 crie os construtores do mais profundo ate a raiz.
+  //! Regra 03 faca o tratamento de erros.
+  Map<String, dynamic> parsedJson = jsonDecode(jsonData);
+  Pessoa pessoa = Pessoa.fromJson(parsedJson);
+  print('DECODE: $parsedJson\n');
+  print('USO DIRETO: ${parsedJson['bens']['veiculos'][0]['multas'][0]['descrisao']}\n');
+  print('USO OBJETO: ${pessoa.bens.veiculos.map((e) => e.multas.map((e) => e.descrisao).toSet()).toList()}\n');
+
+  Map<String, dynamic> map = pessoa.toJson();
+  String toJson = jsonEncode(map);
+  print('ENCODE: $toJson');
+
+
+
+
 }

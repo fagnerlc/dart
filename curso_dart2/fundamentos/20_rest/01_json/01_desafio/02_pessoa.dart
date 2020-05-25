@@ -21,16 +21,21 @@ class Pessoa {
       this.filhos,
       this.bens});
 
-  Pessoa.fromJson(Map<String, dynamic> json)
-      : this(
-          nome: json['nome'],
-          idade: json['idade'],
-          parentes: json['parentes'],
-          tarefas: json['tarefas'],
-          conjuge: json['conjuge'],
-          filhos: json['filhos'],
-          bens: json['bens'],
-        );
+  factory Pessoa.fromJson(Map<String, dynamic> json) {
+    // List<dynamic> lista = json['filhos'] as List;
+    // List<Filhos> dataLista = lista.map((e) => Filhos.fromJson(e)).toList();
+
+    return Pessoa(
+      nome: json['nome'],
+      idade: json['idade'],
+      parentes: Parentes.fromJson(json['parentes']),
+      //tarefas: json['tarefas'].cast<String>(),  // funciona das duas maneiras, outro exemplo abaixo
+      tarefas: List<String>.from(json['tarefas']),
+      conjuge: Conjuge.fromJson(json['conjuge']),
+      filhos: (json['filhos'] as List<dynamic>).map((e) => Filhos.fromJson(e)).toList(),  
+      bens: Bens.fromJson(json['bens']),
+    );
+  }
 
   Map<String, dynamic> toJson() {
     return {

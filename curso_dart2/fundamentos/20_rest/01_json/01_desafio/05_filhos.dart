@@ -9,7 +9,7 @@ class Filhos {
       : this(
           nome: json['nome'],
           idade: json['idade'],
-          vacina: json['vacina'],
+          vacina: json['vacinas'].cast<String>(),
         );
 
   Map<String, dynamic> toJson() {

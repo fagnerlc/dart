@@ -11,7 +11,7 @@ class Imoveis {
       : this(
           tipo: json['tipo'],
           endereco: json['endereco'],
-          contas: json['contas'],
+          contas: (json['contas'] as List).map((e) => Contas.fromJson(e)).toList(),
         );
 
   Map<String, dynamic> toJson() {
