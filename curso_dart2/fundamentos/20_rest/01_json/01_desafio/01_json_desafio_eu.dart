@@ -1,28 +1,30 @@
+import 'dart:convert';
+
 main() {
   String jsonData = '''
     {
-        "nome" : "Fernando", 
-        "idade": 36, 
+        "nome" : "Fagner", 
+        "idade": 33, 
         "parentes": {
-          "mae": "Marlene",
-          "pai": "Delcio"
+          "mae": "Edete",
+          "pai": "Ney"
         },
         "tarefas": [
           "Pagar contas",
           "Estudar"
         ],
         "conjuge": {
-          "nome" : "Leila", 
-          "idade": 31,
+          "nome" : "Lorena", 
+          "idade": 29,
           "parentes": {
-            "mae": "Lindraci",
-            "pai": "Pedro"
+            "mae": "Meiri",
+            "pai": "Robson"
           }
         },
         "filhos" : [      
           {
             "nome" : "Chloe", 
-            "idade": 1, 
+            "idade": 1,
             "vacinas": [
               "ACWY",
               "Sarampo"
@@ -106,6 +108,8 @@ main() {
       }
       ''';
 
+    Map<String, dynamic>  parsedJson = jsonDecode(jsonData);
+    print(parsedJson);
 
       //! Regra 01 identifique e crie as classes de acordo com o json.
       //! Regra 02 crie os construtores do mais profundo ate a raiz.
