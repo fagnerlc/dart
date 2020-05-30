@@ -23,15 +23,16 @@ class User {
   String website;
   Company company;
 
-  User(
-      {this.id,
-      this.name,
-      this.username,
-      this.email,
-      this.address,
-      this.phone,
-      this.website,
-      this.company});
+  User({
+    this.id,
+    this.name,
+    this.username,
+    this.email,
+    this.address,
+    this.phone,
+    this.website,
+    this.company,
+  });
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
@@ -42,7 +43,7 @@ class User {
       address: Address.fromJson(json['address']),
       phone: json['phone'],
       website: json['website'],
-      company: Company.fromJson(json['Company']),
+      company: Company.fromJson(json['company']),
     );
   }
   Map<String, dynamic> toJson() {
