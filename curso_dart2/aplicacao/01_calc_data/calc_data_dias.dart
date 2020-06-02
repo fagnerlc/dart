@@ -7,7 +7,8 @@ String calcDataDias(DateTime data, int dias){
 
 main(List<String> args) {
 DateTime hoje = DateTime.now();
-  var resultado = calcDataDias(hoje, 31);
+DateTime outroDia = DateTime(2020,06,05);
+  var resultado = calcDataDias(outroDia, -14);
   print('resultado: $resultado');
   
 }
