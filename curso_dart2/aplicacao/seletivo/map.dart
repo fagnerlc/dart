@@ -1,6 +1,6 @@
 main(List<String> args) {
   Map<String, dynamic> mapProcesso;
-  mapProcesso = {
+  mapProcesso = { 'processo' :{
     'titulo': '2020',
     'data': '10/06/2020',
     'aberto': true,
@@ -372,6 +372,7 @@ main(List<String> args) {
           },
         ],
       },
-    ],
+    ],}
   };
+  print(mapProcesso);
 }
