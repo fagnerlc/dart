@@ -1,24 +1,24 @@
 main(List<String> args) {
   Map<String, dynamic> mapBolao;
   mapBolao = {
-    'bolao': [
+    'campeonatos': [
       {
-        'id': 1,
-        'titulo': 'Bolão Previ',
-        'campeonato': [
+        'tituloCampeonato': 'Campeonato Brasileiro A',
+        'bolao': [
           {
-            'titulo': 'Campeonato Brasileiro A',
+            'id': 1,
+            'tituloBolao': 'Bolão Previ',
             'times': [
               {
-                'nome': 'Corinthians',
+                'nomeTime': 'Corinthians',
                 'icone': '',
               },
               {
-                'nome': 'Vasco',
+                'nomeTime': 'Vasco',
                 'icone': '',
               },
               {
-                'nome': 'Palmeiras',
+                'nomeTime': 'Palmeiras',
                 'icone': '',
               }
             ],
@@ -31,15 +31,16 @@ main(List<String> args) {
             ],
             'fase': [
               {
-                'grupo': [
+                'tituloFase': 'Fase Única',
+                'grupos': [
                   {
-                    'titulo': 'Série A',
+                    'tituloGrupo': 'Série A',
                     'tabela': [
                       {
-                        'rodada': [
+                        'rodadas': [
                           {
                             'id': 1,
-                            'partida': [
+                            'partidas': [
                               {
                                 'dataHoraPartida': '15/01/1987',
                                 'dataHoraChute': '14/01/1987',
