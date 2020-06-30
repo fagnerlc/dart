@@ -1,13 +1,14 @@
 import 'dart:convert';
 
+import '../01_calc_data/ciclo_dias.dart';
 import 'remedio.dart';
 
 class Doenca {
   String titulo;
   String descricao;
   List<Remedio> remedios;
-  DateTime inicioDoenca;
-  DateTime fimDoenca;
+  String inicioDoenca;
+  String fimDoenca;
   bool infectocontagiosa;
 
   Doenca({
@@ -53,7 +54,7 @@ main(List<String> args) {
         "marca": "Tilenol",
         "titulo": "Tylenol",
         "descricao": "Contra dor de cabeça e febre",
-        "valor": 10,
+        "valor": 10.0,
         "dosagemPorte": "2 ml por dia a cada 5kg",
         "dataAplicacao": "",
         "qtdAplicacoes": 7,
@@ -67,7 +68,16 @@ main(List<String> args) {
   }
 ''';
   Map<String, dynamic> parsedJson = jsonDecode(doencaBase);
-  print(parsedJson);
+  print(" Decode: $parsedJson");
   Doenca doenca = Doenca.fromJson(parsedJson);
-  doenca.remedios.map((e) => e.cicloAplicacao);
+  doenca.remedios.map((e) => e.cicloAplicacao.add('45'));
+  doenca.remedios.map((e) => e.cicloAplicacao.add(' me65ntira'));
+  doenca.remedios.map((e) => e.cicloAplicacao.add('87987 '));
+  doenca.remedios.add(Remedio(cicloAplicacao: ['teste1, teste2, teste 3']));
+  print(doenca.remedios.map((e) => e.cicloAplicacao.add('Super mentira')));
+  print(doenca.remedios.map((e) => e.cicloAplicacao.add(' mentira')));
+  print(doenca.remedios.map((e) => e.cicloAplicacao));
+  print("Ciclo de aplicações: ${doenca.remedios.map((e) => e.cicloAplicacao)}");
+  var text = 'teste';
+  //print(doenca.remedios.map((e) => e.cicloAplicacao.add(text)));
 }

@@ -54,7 +54,7 @@ main(List<String> args) {
         "marca": "Tilenol",
         "titulo": "Tylenol",
         "descricao": "Contra dor de cabeça e febre",
-        "valor": 10,
+        "valor": 10.0,
         "dosagemPorte": "2 ml por dia a cada 5kg",
         "dataAplicacao": "",
         "qtdAplicacoes": 7,
