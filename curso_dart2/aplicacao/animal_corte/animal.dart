@@ -23,17 +23,17 @@ class Animal {
   AreaLocal areaLocal;
   List<Doenca> doencas;
   List<Vacina> vacinas;
-  List<Remedio> remedios;
+  //List<Remedio> remedios;
   List<Racao> racao;
   List<Vitamina> vitaminas;
   double valorCompra;
   double valorAtual;
   double valorVenda;
-  DateTime dataNascimento;
-  DateTime dataCompra;
-  DateTime dataVenda;
-  DateTime dataRegistro;
-  DateTime dataAlteracao;
+  String dataNascimento;
+  String dataCompra;
+  String dataVenda;
+  String dataRegistro;
+  String dataAlteracao;
   String usuarioRegistro;
   String usuarioAlteracao;
 
@@ -54,7 +54,7 @@ class Animal {
     this.areaLocal,
     this.doencas,
     this.vacinas,
-    this.remedios,
+    //this.remedios,
     this.racao,
     this.vitaminas,
     this.valorCompra,
@@ -91,9 +91,9 @@ class Animal {
       vacinas: (json['vacinas'] as List<dynamic>)
           .map((e) => Vacina.fromJson(e))
           .toList(),
-      remedios: (json['remedios'] as List<dynamic>)
-          .map((e) => Remedio.fromJson(e))
-          .toList(),
+      // remedios: (json['remedios'] as List<dynamic>)
+      // .map((e) => Remedio.fromJson(e))
+      // .toList(),
       racao: (json['racao'] as List<dynamic>)
           .map((e) => Racao.fromJson(e))
           .toList(),
@@ -130,7 +130,7 @@ class Animal {
       'areaLocal': areaLocal,
       'doencas': doencas,
       'vacinas': vacinas,
-      'remedios': remedios,
+      //'remedios': remedios,
       'racao': racao,
       'vitaminas': vitaminas,
       'valorCompra': valorCompra,
@@ -145,4 +145,30 @@ class Animal {
       'usuarioAlteracao': usuarioAlteracao,
     };
   }
+}
+
+main() {
+  List<Doenca> doencas = List<Doenca>();
+  Animal animal = Animal();
+  animal.doencas.add(Doenca(remedios: []));
+  animal.doencas.add(
+    Doenca(
+      titulo: 'Raiva',
+      descricao: 'Espuma na boca e louquidão',
+      // remedios: animal.doencas.map(
+      //   (e) => e.remedios.add(
+      //     Remedio(
+      //       marca: 'Fagra',
+      //       titulo: 'Pomada',
+      //       descricao: 'Pomada para passar na boca',
+      //       valor: 15.0,
+      //     ),
+      //   ),
+      // ),
+      inicioDoenca: '',
+      fimDoenca: '',
+      infectocontagiosa: false,
+    ),
+  );
+  //print(animal.doencas.map((e) => e.remedios.map((e) => e.descricao)));
 }
