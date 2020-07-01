@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import '../01_calc_data/ciclo_dias.dart';
 import 'remedio.dart';
 
 class Doenca {
@@ -74,10 +72,11 @@ main(List<String> args) {
   doenca.remedios.map((e) => e.cicloAplicacao.add(' me65ntira'));
   doenca.remedios.map((e) => e.cicloAplicacao.add('87987 '));
   doenca.remedios.add(Remedio(cicloAplicacao: ['teste1, teste2, teste 3']));
-  print(doenca.remedios.map((e) => e.cicloAplicacao.add('Super mentira')));
-  print(doenca.remedios.map((e) => e.cicloAplicacao.add(' mentira')));
-  print(doenca.remedios.map((e) => e.cicloAplicacao));
-  print("Ciclo de aplicações: ${doenca.remedios.map((e) => e.cicloAplicacao)}");
+  print(doenca);
+  //print(doenca.remedios.map((e) => e.cicloAplicacao.add('Super mentira')));
+  //print(doenca.remedios.map((e) => e.cicloAplicacao.add(' mentira')));
+  //print(doenca.remedios.map((e) => e.cicloAplicacao));
+  //print("Ciclo de aplicações: ${doenca.remedios.map((e) => e.cicloAplicacao)}");
   var text = 'teste';
   //print(doenca.remedios.map((e) => e.cicloAplicacao.add(text)));
 }
