@@ -1,12 +1,15 @@
+import 'analise_animal_corte.dart';
+import 'analise_animal_leite.dart';
+import 'analise_animal_postura.dart';
 import 'area_local.dart';
 import 'doenca.dart';
+import 'gestacao.dart';
 import 'racao.dart';
-import 'remedio.dart';
 import 'vacina.dart';
 import 'vitamina.dart';
 
 class Animal {
-  String id;
+  int id;
   String identificador;
   // bovino / bufalinos / caprino / ovino / suínos / equinos / muar (mulas) / asinino (jumentos) / canino / felino / aves / peixes
   String tipo;
@@ -19,11 +22,14 @@ class Animal {
   double largura;
   Animal pai;
   Animal mae;
+  List<Gestacao> gestacao;
+  List<AnaliseAnimalCorte> analiseCorte;
+  List<AnaliseAnimalLeite> analiseLeite;
+  List<AnaliseAnimalPostura> analisePostura;
   bool favorito;
   AreaLocal areaLocal;
   List<Doenca> doencas;
   List<Vacina> vacinas;
-  //List<Remedio> remedios;
   List<Racao> racao;
   List<Vitamina> vitaminas;
   double valorCompra;
@@ -54,7 +60,6 @@ class Animal {
     this.areaLocal,
     this.doencas,
     this.vacinas,
-    //this.remedios,
     this.racao,
     this.vitaminas,
     this.valorCompra,
@@ -91,9 +96,6 @@ class Animal {
       vacinas: (json['vacinas'] as List<dynamic>)
           .map((e) => Vacina.fromJson(e))
           .toList(),
-      // remedios: (json['remedios'] as List<dynamic>)
-      // .map((e) => Remedio.fromJson(e))
-      // .toList(),
       racao: (json['racao'] as List<dynamic>)
           .map((e) => Racao.fromJson(e))
           .toList(),
@@ -130,7 +132,6 @@ class Animal {
       'areaLocal': areaLocal,
       'doencas': doencas,
       'vacinas': vacinas,
-      //'remedios': remedios,
       'racao': racao,
       'vitaminas': vitaminas,
       'valorCompra': valorCompra,

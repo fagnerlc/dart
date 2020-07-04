@@ -60,8 +60,8 @@ main(List<String> args) {
       }
     ],
     "descricao" : "Doença causada pela mordida do morcego",
-    "inicioDoenca" : "DateTime.now()",
-    "fimDoenca" : "DateTime.now()",
+    "inicioDoenca" : "01/02/2020",
+    "fimDoenca" : "01/04/2020",
     "infectocontagiosa" : false 
   }
 ''';
@@ -69,14 +69,15 @@ main(List<String> args) {
   print(" Decode: $parsedJson");
   Doenca doenca = Doenca.fromJson(parsedJson);
   doenca.remedios.map((e) => e.cicloAplicacao.add('45'));
-  doenca.remedios.map((e) => e.cicloAplicacao.add(' me65ntira'));
-  doenca.remedios.map((e) => e.cicloAplicacao.add('87987 '));
-  doenca.remedios.add(Remedio(cicloAplicacao: ['teste1, teste2, teste 3']));
-  print(doenca);
+  doenca.remedios.map((e) => e.cicloAplicacao.add('me65ntira'));
+  doenca.remedios.map((e) => e.cicloAplicacao.add('87987'));
+  doenca.remedios.add(Remedio(cicloAplicacao: ['teste1, teste2, teste3']));
+  //print(doenca);
   //print(doenca.remedios.map((e) => e.cicloAplicacao.add('Super mentira')));
   //print(doenca.remedios.map((e) => e.cicloAplicacao.add(' mentira')));
   //print(doenca.remedios.map((e) => e.cicloAplicacao));
   //print("Ciclo de aplicações: ${doenca.remedios.map((e) => e.cicloAplicacao)}");
+  print(doenca.remedios.map((e) => e.cicloAplicacao));
   var text = 'teste';
   //print(doenca.remedios.map((e) => e.cicloAplicacao.add(text)));
 }

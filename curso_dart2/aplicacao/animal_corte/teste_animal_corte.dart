@@ -26,7 +26,7 @@ main(List<String> args) {
   Map<String, dynamic> parsedJson = jsonDecode(animalCorteBase);
   print('parsedJson $parsedJson');
   AnaliseAnimalCorte animalCorte = new AnaliseAnimalCorte.fromJson(parsedJson);
-  animalCorte.animal = 'Caprino';
+  //animalCorte.animal = 'Caprino';
   pesoIdade = [
     {
       'pesoIdade': {
