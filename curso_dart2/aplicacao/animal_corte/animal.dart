@@ -3,6 +3,7 @@ import 'analise_animal_leite.dart';
 import 'analise_animal_postura.dart';
 import 'area_local.dart';
 import 'doenca.dart';
+import 'fazenda.dart';
 import 'gestacao.dart';
 import 'racao.dart';
 import 'vacina.dart';
@@ -11,37 +12,40 @@ import 'vitamina.dart';
 class Animal {
   int id;
   String identificador;
-  // bovino / bufalinos / caprino / ovino / suínos / equinos / muar (mulas) / asinino (jumentos) / canino / felino / aves / peixes
-  String tipo;
-  String raca;
-  String genero;
-  String imagens;
-  double peso;
-  double altura;
-  double comprimento;
-  double largura;
-  Animal pai;
-  Animal mae;
-  List<Gestacao> gestacao;
-  List<AnaliseAnimalCorte> analiseCorte;
-  List<AnaliseAnimalLeite> analiseLeite;
-  List<AnaliseAnimalPostura> analisePostura;
-  bool favorito;
-  AreaLocal areaLocal;
-  List<Doenca> doencas;
-  List<Vacina> vacinas;
-  List<Racao> racao;
-  List<Vitamina> vitaminas;
-  double valorCompra;
-  double valorAtual;
-  double valorVenda;
-  String dataNascimento;
-  String dataCompra;
-  String dataVenda;
-  String dataRegistro;
-  String dataAlteracao;
-  String usuarioRegistro;
-  String usuarioAlteracao;
+  // bovino / bufalinos / caprino / ovino / suínos / equinos / muar (mulas) / asinino (jumentos) / canino / felino / aves / peixes /
+  final String tipo;
+  final String raca;
+  final String genero;
+  final String imagens;
+  final double peso;
+  final double altura;
+  final double comprimento;
+  final double largura;
+  final Animal pai;
+  final Animal mae;
+  final List<Gestacao> gestacao;
+  final List<AnaliseAnimalCorte> analiseCorte;
+  final List<AnaliseAnimalLeite> analiseLeite;
+  final List<AnaliseAnimalPostura> analisePostura;
+  final bool favorito;
+  final AreaLocal areaLocal;
+  final Fazenda fazenda;
+  final List<Doenca> doencas;
+  final List<Vacina> vacinas;
+  final List<Racao> racao;
+  final List<Vitamina> vitaminas;
+  final double valorKg;
+  final double valorCompra;
+  final double valorAtual;
+  final double valorVenda;
+  final double lucroAnimal;
+  final String dataNascimento;
+  final String dataCompra;
+  final String dataVenda;
+  final String dataRegistro;
+  final String dataAlteracao;
+  final String usuarioRegistro;
+  final String usuarioAlteracao;
 
   Animal({
     this.id,
@@ -56,15 +60,22 @@ class Animal {
     this.largura,
     this.pai,
     this.mae,
+    this.gestacao,
+    this.analiseCorte,
+    this.analiseLeite,
+    this.analisePostura,
     this.favorito,
     this.areaLocal,
+    this.fazenda,
     this.doencas,
     this.vacinas,
     this.racao,
     this.vitaminas,
+    this.valorKg,
     this.valorCompra,
     this.valorAtual,
     this.valorVenda,
+    this.lucroAnimal,
     this.dataNascimento,
     this.dataCompra,
     this.dataVenda,
@@ -88,8 +99,21 @@ class Animal {
       largura: json['largura'],
       pai: Animal.fromJson(json['animal']),
       mae: Animal.fromJson(json['animal']),
+      gestacao: (json['gestacao'] as List<dynamic>)
+          .map((e) => Gestacao.fromJson(e))
+          .toList(),
+      analiseCorte: (json['analiseCorte'] as List<dynamic>)
+          .map((e) => AnaliseAnimalCorte.fromJson(e))
+          .toList(),
+      analiseLeite: (json['analiseLeite'] as List<dynamic>)
+          .map((e) => AnaliseAnimalLeite.fromJson(e))
+          .toList(),
+      analisePostura: (json['analisePostura'] as List<dynamic>)
+          .map((e) => AnaliseAnimalPostura.fromJson(e))
+          .toList(),
       favorito: json['favorito'],
       areaLocal: json['areaLocal'],
+      fazenda: json['fazenda'],
       doencas: (json['doencas'] as List<dynamic>)
           .map((e) => Doenca.fromJson(e))
           .toList(),
@@ -105,6 +129,7 @@ class Animal {
       valorCompra: json['valorCompra'],
       valorAtual: json['valorAtual'],
       valorVenda: json['valorVenda'],
+      lucroAnimal: json['lucroAnimal'],
       dataNascimento: json['dataNascimento'],
       dataCompra: json['dataCompra'],
       dataVenda: json['dataVenda'],
@@ -128,15 +153,22 @@ class Animal {
       'largura': largura,
       'pai': pai,
       'mae': mae,
+      'gestacao': gestacao,
+      'analiseCorte': analiseCorte,
+      'analiseLeite': analiseLeite,
+      'analisePostura': analisePostura,
       'favorito': favorito,
       'areaLocal': areaLocal,
+      'fazenda': fazenda,
       'doencas': doencas,
       'vacinas': vacinas,
       'racao': racao,
       'vitaminas': vitaminas,
+      'valorKg': valorKg,
       'valorCompra': valorCompra,
       'valorAtual': valorAtual,
       'valorVenda': valorVenda,
+      'lucroAnimal': lucroAnimal,
       'dataNascimento': dataNascimento,
       'dataCompra': dataCompra,
       'dataVenda': dataVenda,

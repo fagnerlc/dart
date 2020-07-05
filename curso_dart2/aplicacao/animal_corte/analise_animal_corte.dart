@@ -3,25 +3,32 @@ import 'animal.dart';
 class AnaliseAnimalCorte {
   List<int> idades;
   List<double> pesos;
-  final List<String> datas;
+  List<String> datas;
   double mediaDiaGanhoPeso;
+  double valorKg;
 
-  AnaliseAnimalCorte({
-    this.datas,
-    this.pesos,
-    this.mediaDiaGanhoPeso,
-    this.idades,
-  });
+  AnaliseAnimalCorte(
+      {this.idades,
+      this.pesos,
+      this.datas,
+      this.mediaDiaGanhoPeso,
+      this.valorKg});
   factory AnaliseAnimalCorte.fromJson(Map<String, dynamic> json) {
     return AnaliseAnimalCorte(
+      idades: json['idades'],
       pesos: json['pesos'],
-      idades: json['pesoIdades'],
+      datas: json['datas'],
+      mediaDiaGanhoPeso: json['mediaDiaGanhoPeso'],
+      valorKg: json['valorKg'],
     );
   }
   Map<String, dynamic> toJson() {
     return {
+      'idades': idades,
       'pesos': pesos,
-      'pesoIdades': idades,
+      'datas': datas,
+      'mediaDiaGanhoPeso': mediaDiaGanhoPeso,
+      'valorKg': valorKg,
     };
   }
 }

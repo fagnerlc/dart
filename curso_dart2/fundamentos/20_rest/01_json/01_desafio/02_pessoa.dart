@@ -32,7 +32,9 @@ class Pessoa {
       //tarefas: json['tarefas'].cast<String>(),  // funciona das duas maneiras, outro exemplo abaixo
       tarefas: List<String>.from(json['tarefas']),
       conjuge: Conjuge.fromJson(json['conjuge']),
-      filhos: (json['filhos'] as List<dynamic>).map((e) => Filhos.fromJson(e)).toList(),  
+      filhos: (json['filhos'] as List<dynamic>)
+          .map((e) => Filhos.fromJson(e))
+          .toList(),
       bens: Bens.fromJson(json['bens']),
     );
   }
