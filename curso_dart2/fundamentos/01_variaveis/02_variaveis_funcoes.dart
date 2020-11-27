@@ -1,4 +1,4 @@
-void main(){
+void main() {
   print('01.2) Variaveis Funcoes');
 
   num pi = 3.14;
@@ -25,14 +25,15 @@ void main(){
   String nomeCompleto = "\t Fagner Lopes";
   print('17 toLowerCase: ' + nome.toLowerCase()); // letras minusculas
   print('18 toUpperCase: ' + nomeCompleto.toUpperCase()); // letras maiusculas
-  print('19 : ${nomeCompleto.split(' ')}');
-  print('20 : ${nome.split('')}');
-  print('21 substring: ' + nome.substring(3, 6));
+  print('19 : ${nomeCompleto.split(' ')}'); // divide nomes
+  print('20 : ${nome.split('')}'); // divide letras
+  print('21 substring: ' + nome.substring(3, 6)); // pega da quarta a sétima
   print('22 : ${nome.startsWith('F')}');
-  print('23 : ${nome.startsWith('gner',2)}');
+  print('23 : ${nome.startsWith('gner', 2)}'); // verifica inicio terceira letr
   print('24 replaceAll: ' + nome.replaceAll('a', 'o'));
   print('25 replaceFirst: ' + nome.replaceFirst('Fag', ''));
   print('26 replaceFirst: ' + nome.replaceFirst('r', 'a', 5));
+  // 27 pega a quarta e a sexta letra e subistitui por ''
   print('27 replaceRange: ' + nome.replaceRange(3, 5, ''));
   print('28 : ${nomeCompleto.trim().split(' ')}');
   print('29 : ${nome.contains('f')}');
@@ -63,5 +64,4 @@ void main(){
   num numero = 3.14;
   print('44 : ${numero is double}');
   print('45 : ${numero is! double}');
-
 }
