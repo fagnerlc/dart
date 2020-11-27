@@ -310,10 +310,11 @@ String calculaSaidaLocal(
         previsaoSaida = previsaoSaida - intervalo;
         print('DENTRO DO IF!');
       } else if (intervalo > 1 && dia.length == 3) {
-        previsaoSaida = previsaoSaida + intervalo - 1;
+        previsaoSaida = previsaoSaida + intervalo;
         print('DENTRO DO ELSE IF!');
       } else {
         previsaoSaida = previsaoSaida + intervalo;
+        //previsaoSaida = previsaoSaida;
         print('DENTRO DO ELSE! previsaoSaida $previsaoSaida');
       }
     } else if (dia.length > 2 && dia.length % 2 == 0) {
@@ -354,6 +355,21 @@ String calculaSaidaLocal(
 }
 
 main(List<String> args) {
+  List<double> dia = [
+    9, // Entrada
+    11.5, // Retorno Almoço
+    12.5, // Intervalo Almoço
+    //13, // Pausa
+    //13.5, // Retorno
+    //14, // Pausa
+    //15, // Retorno
+    //15.5, // Pausa
+    //16, // Retorno
+  ];
+  List<double> previsaoSaida = [
+    //0,
+    18,
+  ];
   listForEach();
   listExpand();
   listMap();
@@ -363,17 +379,7 @@ main(List<String> args) {
   listFold();
   listLast();
   calculaSaidaLocal(
-    [
-      9, // Entrada
-      11, // Intervalo Almoço
-      11.5, // Retorno Almoço
-      //13, // Pausa
-      //13.5, // Retorno
-      //14, // Pausa
-      //15, // Retorno
-      //15.5, // Pausa
-      //16, // Retorno
-    ],
-    17.5,
+    dia,
+    previsaoSaida.last,
   );
 }

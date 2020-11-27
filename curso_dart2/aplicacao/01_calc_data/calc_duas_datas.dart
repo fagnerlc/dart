@@ -3,7 +3,8 @@ int calcDuasDatas(DateTime dataMenor, DateTime dataMaior) {
   Duration horas;
   DateTime dt;
   String dhoras;
-  //dias = dataMaior.difference(dataMenor).inDays;
+  dias = dataMaior.difference(dataMenor).inDays;
+  //dias = dataMenor.difference(dataMaior).inDays;
   dhoras = dataMaior.add(Duration(hours: 8)).toIso8601String();
   dt = dataMaior.add(Duration(hours: 8));
   print(' horasDt $dt');
