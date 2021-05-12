@@ -15,7 +15,7 @@ int calcDuasDatas(DateTime dataMenor, DateTime dataMaior) {
 
 main(List<String> args) {
   DateTime dataMenor = DateTime.now();
-  DateTime dataMaior = DateTime(2021, 7, 7);
+  DateTime dataMaior = DateTime(2021, 5, 1);
   int dias = calcDuasDatas(dataMenor, dataMaior);
   print(dias);
 }

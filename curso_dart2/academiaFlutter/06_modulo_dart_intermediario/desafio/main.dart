@@ -18,26 +18,17 @@ main(List<String> args) {
   ];
   criarMap() {
     List<Map> listMapPessoas = [];
+    List listPessoas = [];
+    List listPessoa = [];
     for (var i = 0; i < pessoas.length; i++) {
       Map mapPessoa = Map();
-      List listPessoas = [];
-      List listPessoa = [];
       listPessoa = pessoas[i].split('|');
-      //print('listPessoa = $listPessoa');
       listPessoas.add(mapPessoa['nome'] = listPessoa[0]);
-      //listPessoas.add(mapPessoa.putIfAbsent('nome', () => listPessoa[0]));
       listPessoas.add(mapPessoa['idade'] = listPessoa[1]);
-      //listPessoas.add(
-      //    mapPessoa.putIfAbsent('idade', () => int.tryParse(listPessoa[1])));
       listPessoas.add(mapPessoa['genero'] = listPessoa[2]);
-      //listPessoas.add(mapPessoa.putIfAbsent('genero', () => listPessoa[2]));
       listMapPessoas.add(mapPessoa);
-      //listPessoa.clear();
-      //print('mapPessoa = $mapPessoa');
     }
     print('listMapPessoas = $listMapPessoas');
-    //print('pessoas = $pessoas');
-    //print('listPessoas = $listPessoas');
   }
 
   criarMap();
