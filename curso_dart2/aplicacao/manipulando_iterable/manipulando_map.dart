@@ -75,19 +75,32 @@ Map<String, dynamic> mapBolao = {
 main(List<String> args) {
   var map1 = mapBolao['bolao1'].firstWhere((element) => element['id'] == 1);
   print('Primeiro Print: $map1');
-  var map2 = map1['campeonato'].firstWhere((element) =>
-      element['titulo'] == 'Campeonato Brasileiro A')['classificacaoGamers'];
+  var map2 = map1['campeonato'].firstWhere(
+      (e) => e['titulo'] == 'Campeonato Brasileiro A')['classificacaoGamers'];
   print('Segundo Print: $map2');
   var map3;
-  map2.forEach((element) => map3 = element['nome']);
+  map2.forEach((e) => map3 = e['nome']);
   print('Terceiro Print: $map3');
 
-  var map4 = map1['campeonato'].firstWhere(
-      (element) => element['titulo'] == 'Campeonato Brasileiro A')['times'];
+  var map4 = map1['campeonato']
+      .firstWhere((e) => e['titulo'] == 'Campeonato Brasileiro A')['times'];
   print('Quarto Print: $map4');
 
-  var map5 =
-      map4.firstWhere((element) => element['nome'] == 'Corinthians')['nome'];
+  var map5 = map4.firstWhere((e) => e['nome'] == 'Corinthians')['nome'];
   print('Quinto Print: $map5');
-  //print('Quinto Print: ${map5['icone']}');
+
+  var map6 = map1['campeonato']
+      .firstWhere((e) => e['titulo'] == 'Campeonato Brasileiro A')['fase'];
+  print('Sexto Print: $map6');
+
+  var map7 = mapBolao['bolao1']
+      .firstWhere((e) => e['id'] == 1)['campeonato']
+      .firstWhere((e) => e['titulo'] == 'Campeonato Brasileiro A')[
+          'classififasecacaoGamers']
+      .firstWhere(
+          (e) => e['grupo'].firstWhere((e) => e['titulo'] == 'Série A'));
+
+  //var map7 = map6.firstWhere((e) => e['titulo'] == 'Série A')['tabela'];
+  //.firstWhere((e) => e['grupo']);
+  print('Sétimo Print: $map7');
 }
