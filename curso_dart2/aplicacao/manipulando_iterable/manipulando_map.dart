@@ -1,3 +1,4 @@
+/* Manipulação de MAPs */
 Map<String, dynamic> mapBolao = {
   'bolao1': [
     {
@@ -31,7 +32,7 @@ Map<String, dynamic> mapBolao = {
             {
               'grupo': [
                 {
-                  'titulo': 'Série A',
+                  'titulo': 'Grupo A',
                   'tabela': [
                     {
                       'rodada': [
@@ -39,6 +40,7 @@ Map<String, dynamic> mapBolao = {
                           'id': 1,
                           'partida': [
                             {
+                              'id': 1,
                               'dataHoraPartida': '15/01/1987',
                               'dataHoraChute': '14/01/1987',
                               'timeCasa': 'Corinthians',
@@ -49,6 +51,7 @@ Map<String, dynamic> mapBolao = {
                               'chuteCasa2': 2,
                             },
                             {
+                              'id': 2,
                               'data': '15/01/1987',
                               'timeCasa': 'Vasco',
                               'resultRealCasa1': 1,
@@ -93,17 +96,84 @@ main(List<String> args) {
       .firstWhere((e) => e['titulo'] == 'Campeonato Brasileiro A')['fase'];
   print('Sexto Print: $map6\n');
   //var map7 = map6
-  //    .forEach((e) => e.firstWhere((e) => ['titulo'] == 'Série A')['tabela']);
+  //    .forEach((e) => e.firstWhere((e) => ['titulo'] == 'Grupo A')['tabela']);
   //.firstWhere((e) => e['grupo']);
   //print('Sétimo Print: $map7\n');
+  var boloes = mapBolao['bolao1'];
+  print('Bolões: :$boloes\n');
+
+  var bolao = mapBolao['bolao1'].firstWhere((e) => e['id'] == 1);
+  print('Bolão: :$bolao\n');
+
+  var campeonatos =
+      mapBolao['bolao1'].firstWhere((e) => e['id'] == 1)['campeonato'];
+  print('CAMPEONATOS: :$campeonatos\n');
+
+  var campeonato = mapBolao['bolao1']
+      .firstWhere((e) => e['id'] == 1)['campeonato']
+      .firstWhere((e) => e['titulo'] == 'Campeonato Brasileiro A');
+  print('CAMPEONATO: :$campeonato\n');
+
+  var fases = mapBolao['bolao1']
+      .firstWhere((e) => e['id'] == 1)['campeonato']
+      .firstWhere((e) => e['titulo'] == 'Campeonato Brasileiro A')['fase'];
+  print('FASES: :$fases\n');
+
+  var faseGrupo;
+  mapBolao['bolao1']
+      .firstWhere((e) => e['id'] == 1)['campeonato']
+      .firstWhere((e) => e['titulo'] == 'Campeonato Brasileiro A')['fase']
+      .forEach((e) => faseGrupo = e['grupo']);
+  print('FASE GRUPO: :$faseGrupo\n');
+
+  var tabela;
+  mapBolao['bolao1']
+      .firstWhere((e) => e['id'] == 1)['campeonato']
+      .firstWhere((e) => e['titulo'] == 'Campeonato Brasileiro A')['fase']
+      .forEach((e) => e['grupo'].forEach((e) => tabela = e['tabela']));
+  print('TABELAS: :$tabela\n');
+
+  var rodada;
+  mapBolao['bolao1']
+      .firstWhere((e) => e['id'] == 1)['campeonato']
+      .firstWhere((e) => e['titulo'] == 'Campeonato Brasileiro A')['fase']
+      .forEach((e) => e['grupo']
+          .forEach((e) => e['tabela'].forEach((e) => rodada = e['rodada'])));
+  print('RODADAS: :$rodada\n');
+
+  var partidas;
+  mapBolao['bolao1']
+      .firstWhere((e) => e['id'] == 1)['campeonato']
+      .firstWhere((e) => e['titulo'] == 'Campeonato Brasileiro A')['fase']
+      .forEach((e) => e['grupo'].forEach((e) => e['tabela'].forEach(
+          (e) => e['rodada'].forEach((e) => partidas = e['partida']))));
+  print('PARTIDAS: :$partidas\n');
+
+  var partida;
+  mapBolao['bolao1']
+      .firstWhere((e) => e['id'] == 1)['campeonato']
+      .firstWhere((e) => e['titulo'] == 'Campeonato Brasileiro A')['fase']
+      .forEach((e) => e['grupo'].forEach((e) => e['tabela'].forEach((e) =>
+          e['rodada']
+              .forEach((e) => e['partida'].forEach((e) => partida = e)))));
+  print('PARTIDA: :$partida\n');
+
+  var timeCasa;
+  mapBolao['bolao1']
+      .firstWhere((e) => e['id'] == 1)['campeonato']
+      .firstWhere((e) => e['titulo'] == 'Campeonato Brasileiro A')['fase']
+      .forEach((e) => e['grupo'].forEach((e) => e['tabela'].forEach((e) =>
+          e['rodada'].forEach(
+              (e) => e['partida'].forEach((e) => timeCasa = e['timeCasa'])))));
+  print('TIME CASA: :$timeCasa\n');
 
   var nome1;
   mapBolao['bolao1']
       .firstWhere((e) => e['id'] == 1)['campeonato']
       .firstWhere((e) => e['titulo'] == 'Campeonato Brasileiro A')['fase']
-      .forEach((e) => e['grupo']
-          .forEach((e) => e['tabela'].forEach((e) => nome1 = e['rodada'])));
-  //.firstWhere((e) => nome2 = e['rodada'])
+      .forEach((e) => e['grupo'].forEach((e) => e['tabela']
+          .forEach((e) => e['rodada'].forEach((e) => nome1 = e['partida']))));
+  //.forEach((e) => nome1 = e['dataHoraPartida'])
 
-  print(' Nome 1 :$nome1\n');
+  print('Nome 1 :$nome1\n');
 }
