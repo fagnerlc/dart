@@ -153,9 +153,8 @@ main(List<String> args) {
   mapBolao['bolao1']
       .firstWhere((e) => e['id'] == 1)['campeonato']
       .firstWhere((e) => e['titulo'] == 'Campeonato Brasileiro A')['fase']
-      .forEach((e) => e['grupo'].forEach((e) => e['tabela'].forEach((e) =>
-          e['rodada']
-              .forEach((e) => e['partida'].forEach((e) => partida = e)))));
+      .forEach((e) => e['grupo'].forEach((e) => e['tabela'].forEach(
+          (e) => e['rodada'].forEach((e) => partida = e['partida'][0]))));
   print('PARTIDA: :$partida\n');
 
   var timeCasa;
@@ -163,10 +162,10 @@ main(List<String> args) {
       .firstWhere((e) => e['id'] == 1)['campeonato']
       .firstWhere((e) => e['titulo'] == 'Campeonato Brasileiro A')['fase']
       .forEach((e) => e['grupo'].forEach((e) => e['tabela'].forEach((e) =>
-          e['rodada'].forEach(
-              (e) => e['partida'].forEach((e) => timeCasa = e['timeCasa'])))));
+          e['rodada'].forEach((e) => timeCasa =
+              e['partida'].firstWhere((e) => e['id'] == 1)['timeCasa']))));
   print('TIME CASA: :$timeCasa\n');
-
+//.forEach((e) => timeCasa = e['timeCasa'])
   var nome1;
   mapBolao['bolao1']
       .firstWhere((e) => e['id'] == 1)['campeonato']
