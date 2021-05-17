@@ -1,3 +1,4 @@
+/* Manipulação de MAPs */
 Map<String, dynamic> mapBolao = {
   'bolao1': [
     {
@@ -9,15 +10,15 @@ Map<String, dynamic> mapBolao = {
           'times': [
             {
               'nome': 'Corinthians',
-              'icone': '',
+              'icone': '1',
             },
             {
               'nome': 'Vasco',
-              'icone': '',
+              'icone': '2',
             },
             {
               'nome': 'Palmeiras',
-              'icone': '',
+              'icone': '3',
             }
           ],
           'classificacaoGamers': [
@@ -31,7 +32,7 @@ Map<String, dynamic> mapBolao = {
             {
               'grupo': [
                 {
-                  'titulo': 'Série A',
+                  'titulo': 'Grupo A',
                   'tabela': [
                     {
                       'rodada': [
@@ -39,6 +40,7 @@ Map<String, dynamic> mapBolao = {
                           'id': 1,
                           'partida': [
                             {
+                              'id': 1,
                               'dataHoraPartida': '15/01/1987',
                               'dataHoraChute': '14/01/1987',
                               'timeCasa': 'Corinthians',
@@ -49,6 +51,7 @@ Map<String, dynamic> mapBolao = {
                               'chuteCasa2': 2,
                             },
                             {
+                              'id': 2,
                               'data': '15/01/1987',
                               'timeCasa': 'Vasco',
                               'resultRealCasa1': 1,
@@ -71,36 +74,45 @@ Map<String, dynamic> mapBolao = {
     },
   ],
 };
+
 main(List<String> args) {
-  List boloes = mapBolao['bolao1'];
-  var bolao = boloes.firstWhere((element) => element['id'] == 1);
-  if (bolao != null) {
-    List campeonatos = bolao['campeonato'];
-    var campeonatoBrasileiro = campeonatos.firstWhere(
-        (element) => element['titulo'] == 'Campeonato Brasileiro A');
-    if (campeonatoBrasileiro != null) {
-      List classificacaoGamers = campeonatoBrasileiro['classificacaoGamers'];
-      classificacaoGamers.forEach((element) => print(element['nome']));
-    }
-  }
+  var boloes = mapBolao['bolao1'];
+  print('Bolões 1: :$boloes\n');
 
-/*   var bolao1 = mapBolao['bolao1']
-      .firstWhere((element) => element['id'] == 1)['campeonato']
-      .firstWhere((element) => element['titulo'] == 'Campeonato Brasileiro A')[
-          'classificacaoGamers']
-      .forEach((element) => print(element['nome'])); */
-  var nome;
-  mapBolao['bolao1']
-      .firstWhere((element) => element['id'] == 1)['campeonato']
-      .firstWhere((element) => element['titulo'] == 'Campeonato Brasileiro A')[
-          'classificacaoGamers']
-      .forEach((element) => nome = element['nome']);
+  var bolao = boloes.firstWhere((e) => e['id'] == 1);
+  print('BOLÃO 2: :$bolao\n');
 
-  print(' Teste :$nome');
+  var campeonatos3 = bolao['campeonato'];
+  print('CAMPEONATOS 3: :$campeonatos3\n');
 
-  //mapBolao.forEach((chave, valor) => print('$chave: ${valor}'));
-  //print(mapBolao['bolao']);
-  //mapBolao.forEach((key, value) => print('Chave: ${key} Valor: ${value}'));
-  //mapBolao.forEach(
-  //    (key, value) => print('forEach: ${key} ${value.id}, ${value.titulo}'));
+  var campeonato4 =
+      campeonatos3.firstWhere((e) => e['titulo'] == 'Campeonato Brasileiro A');
+  print('CAMPEONATO 4: :$campeonato4\n');
+
+  var fases5 = campeonato4['fase'];
+  print('FASES 5: :$fases5\n');
+
+  var faseGrupo6;
+  fases5.forEach((e) => faseGrupo6 = e['grupo']);
+  print('FASE GRUPO 6: :$faseGrupo6\n');
+
+  var tabela7;
+  faseGrupo6.forEach((e) => tabela7 = e['tabela']);
+  print('TABELAS 7: :$tabela7\n');
+
+  var rodada8;
+  tabela7.forEach((e) => rodada8 = e['rodada']);
+  print('RODADAS 8: :$rodada8\n');
+
+  var partidas9;
+  rodada8.forEach((e) => partidas9 = e['partida']);
+  print('PARTIDAS 9: :$partidas9\n');
+
+  var partida10 = partidas9[0];
+  print('PARTIDA 10: :$partida10\n');
+
+  var timeCasa11;
+  rodada8.forEach((e) =>
+      timeCasa11 = e['partida'].firstWhere((e) => e['id'] == 1)['timeCasa']);
+  print('TIME CASA 11: :$timeCasa11\n');
 }
