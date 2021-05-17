@@ -115,4 +115,7 @@ main(List<String> args) {
   rodada8.forEach((e) =>
       timeCasa11 = e['partida'].firstWhere((e) => e['id'] == 1)['timeCasa']);
   print('TIME CASA 11: :$timeCasa11\n');
+
+  print(mapBolao['bolao1'][0]['campeonato'][0]['fase'][0]['grupo'][0]['tabela']
+      [0]['rodada']);
 }
