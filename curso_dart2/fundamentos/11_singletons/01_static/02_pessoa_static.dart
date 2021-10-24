@@ -1,6 +1,6 @@
-class PessoaStatic{
+class PessoaStatic {
   static final PessoaStatic instance = new PessoaStatic._construtorNomeado();
-  String nome;
+  String? nome;
 
   PessoaStatic._construtorNomeado();
 }

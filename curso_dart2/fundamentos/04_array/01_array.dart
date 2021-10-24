@@ -11,7 +11,8 @@ main(List<String> args) {
   print('${textos[0]} e ${textos[1]}');
   print('${textos[0]} tem ${numeros[4]} anos');
   print('${textos[1]} ${numeros[3] > 17 ? 'é maior' : 'não é maior'} de idade');
-  print('condicoes[3] == null: ${condicoes[3] ?? (condicoes[0] ? condicoes[1] : condicoes[2])}');
+  print(
+      'condicoes[3] == null: ${condicoes[3] ?? (condicoes[0]! ? condicoes[1] : condicoes[2])}');
 
   bool verdadeiro = !false;
   var arrayDinamico = ['texto', [], 3, 1.5, verdadeiro];
@@ -25,7 +26,7 @@ main(List<String> args) {
 
   print('\n04.2) Arrays Funcoes\n');
 
-  arrayDinamico.add(condicoes[3]);
+  arrayDinamico.add(condicoes[3]!);
   arrayDinamico.insert(0, 'Lívia');
   print(arrayDinamico);
   arrayDinamico.removeAt(1);
@@ -47,9 +48,6 @@ main(List<String> args) {
   numeros.sort();
   print(numeros);
   textos = ['Fagner', 'Lívia', 'Lorena'];
-  textos.sort((b,a) => a.compareTo(b));
+  textos.sort((b, a) => a.compareTo(b));
   print(textos);
-
-
-
 }

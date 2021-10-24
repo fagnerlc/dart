@@ -1,11 +1,9 @@
-import 'animal.dart';
-
 class AnaliseAnimalCorte {
-  List<int> idades;
-  List<double> pesos;
-  List<String> datas;
-  double mediaDiaGanhoPeso;
-  double valorKg;
+  List<int>? idades;
+  List<double>? pesos;
+  List<String>? datas;
+  double? mediaDiaGanhoPeso;
+  double? valorKg;
 
   AnaliseAnimalCorte(
       {this.idades,

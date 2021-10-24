@@ -1,13 +1,13 @@
 class Usuario {
-  String usuario;
-  String senha;
+  String? usuario;
+  String? senha;
 
-  void autenticar(){
+  void autenticar() {
     // Dados recuperados do banco de dados
     var usuario = 'flc@gmail.com';
     var senha = '1234567';
 
-    if(this.usuario == usuario && this.senha == senha){
+    if (this.usuario == usuario && this.senha == senha) {
       print('Usuario autenticado!\n');
     } else {
       print('Usuário não autenticado!\n');

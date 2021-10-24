@@ -2,12 +2,12 @@ import 'dart:convert';
 import 'remedio.dart';
 
 class Doenca {
-  String titulo;
-  String descricao;
-  List<Remedio> remedios;
-  String inicioDoenca;
-  String fimDoenca;
-  bool infectocontagiosa;
+  String? titulo;
+  String? descricao;
+  List<Remedio>? remedios;
+  String? inicioDoenca;
+  String? fimDoenca;
+  bool? infectocontagiosa;
 
   Doenca({
     this.titulo,
@@ -68,16 +68,20 @@ main(List<String> args) {
   Map<String, dynamic> parsedJson = jsonDecode(doencaBase);
   print(" Decode: $parsedJson");
   Doenca doenca = Doenca.fromJson(parsedJson);
-  doenca.remedios.map((e) => e.cicloAplicacao.add('45'));
-  doenca.remedios.map((e) => e.cicloAplicacao.add('me65ntira'));
-  doenca.remedios.map((e) => e.cicloAplicacao.add('87987'));
-  doenca.remedios.add(Remedio(cicloAplicacao: ['teste1, teste2, teste3']));
-  //print(doenca);
-  //print(doenca.remedios.map((e) => e.cicloAplicacao.add('Super mentira')));
-  //print(doenca.remedios.map((e) => e.cicloAplicacao.add(' mentira')));
-  //print(doenca.remedios.map((e) => e.cicloAplicacao));
-  //print("Ciclo de aplicações: ${doenca.remedios.map((e) => e.cicloAplicacao)}");
-  print(doenca.remedios.map((e) => e.cicloAplicacao));
+
+  if (doenca.remedios != null) {
+    doenca.remedios!.map((e) => e.cicloAplicacao!.add('45'));
+    doenca.remedios!.map((e) => e.cicloAplicacao!.add('me65ntira'));
+    doenca.remedios!.map((e) => e.cicloAplicacao!.add('87987'));
+    doenca.remedios!.add(Remedio(cicloAplicacao: ['teste1, teste2, teste3']));
+    //print(doenca);
+    //print(doenca.remedios.map((e) => e.cicloAplicacao.add('Super mentira')));
+    //print(doenca.remedios.map((e) => e.cicloAplicacao.add(' mentira')));
+    //print(doenca.remedios.map((e) => e.cicloAplicacao));
+    //print("Ciclo de aplicações: ${doenca.remedios.map((e) => e.cicloAplicacao)}");
+    print(doenca.remedios!.map((e) => e.cicloAplicacao));
+  }
+
   var text = 'teste';
   //print(doenca.remedios.map((e) => e.cicloAplicacao.add(text)));
 }

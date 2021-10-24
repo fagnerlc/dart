@@ -10,42 +10,42 @@ import 'vacina.dart';
 import 'vitamina.dart';
 
 class Animal {
-  int id;
-  String identificador;
+  int? id;
+  String? identificador;
   // bovino / bufalinos / caprino / ovino / suínos / equinos / muar (mulas) / asinino (jumentos) / canino / felino / aves / peixes /
-  final String tipo;
-  final String raca;
-  final String genero;
-  final String imagens;
-  final double peso;
-  final double altura;
-  final double comprimento;
-  final double largura;
-  final Animal pai;
-  final Animal mae;
-  final List<Gestacao> gestacao;
-  final List<AnaliseAnimalCorte> analiseCorte;
-  final List<AnaliseAnimalLeite> analiseLeite;
-  final List<AnaliseAnimalPostura> analisePostura;
-  final bool favorito;
-  final AreaLocal areaLocal;
-  final Fazenda fazenda;
-  final List<Doenca> doencas;
-  final List<Vacina> vacinas;
-  final List<Racao> racao;
-  final List<Vitamina> vitaminas;
-  final double valorKg;
-  final double valorCompra;
-  final double valorAtual;
-  final double valorVenda;
-  final double lucroAnimal;
-  final String dataNascimento;
-  final String dataCompra;
-  final String dataVenda;
-  final String dataRegistro;
-  final String dataAlteracao;
-  final String usuarioRegistro;
-  final String usuarioAlteracao;
+  final String? tipo;
+  final String? raca;
+  final String? genero;
+  final String? imagens;
+  final double? peso;
+  final double? altura;
+  final double? comprimento;
+  final double? largura;
+  final Animal? pai;
+  final Animal? mae;
+  final List<Gestacao>? gestacao;
+  final List<AnaliseAnimalCorte>? analiseCorte;
+  final List<AnaliseAnimalLeite>? analiseLeite;
+  final List<AnaliseAnimalPostura>? analisePostura;
+  final bool? favorito;
+  final AreaLocal? areaLocal;
+  final Fazenda? fazenda;
+  final List<Doenca>? doencas;
+  final List<Vacina>? vacinas;
+  final List<Racao>? racao;
+  final List<Vitamina>? vitaminas;
+  final double? valorKg;
+  final double? valorCompra;
+  final double? valorAtual;
+  final double? valorVenda;
+  final double? lucroAnimal;
+  final String? dataNascimento;
+  final String? dataCompra;
+  final String? dataVenda;
+  final String? dataRegistro;
+  final String? dataAlteracao;
+  final String? usuarioRegistro;
+  final String? usuarioAlteracao;
 
   Animal({
     this.id,
@@ -181,10 +181,10 @@ class Animal {
 }
 
 main() {
-  List<Doenca> doencas = List<Doenca>();
+  List<Doenca> doencas = [];
   Animal animal = Animal();
-  animal.doencas.add(Doenca(remedios: []));
-  animal.doencas.add(
+  animal.doencas!.add(Doenca(remedios: []));
+  animal.doencas!.add(
     Doenca(
       titulo: 'Raiva',
       descricao: 'Espuma na boca e louquidão',

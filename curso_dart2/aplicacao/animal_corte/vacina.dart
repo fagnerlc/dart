@@ -1,12 +1,12 @@
 class Vacina {
-  String marca;
-  String titulo;
-  String descricao;
-  double valor;
-  String dosagemPorte;
-  String dataAplicacao;
-  int qtdAplicacoes;
-  List<String> cicloAplicacao;
+  String? marca;
+  String? titulo;
+  String? descricao;
+  double? valor;
+  String? dosagemPorte;
+  String? dataAplicacao;
+  int? qtdAplicacoes;
+  List<String>? cicloAplicacao;
 
   Vacina({
     this.marca,

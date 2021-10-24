@@ -1,7 +1,7 @@
 class Postagem {
-  String postagem;
+  String? postagem;
 
-  void escreverPostagem(){
+  void escreverPostagem() {
     print('');
   }
 }

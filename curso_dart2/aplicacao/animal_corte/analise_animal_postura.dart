@@ -1,6 +1,6 @@
 class AnaliseAnimalPostura {
-  double ovosMes;
-  double pesoOvo;
+  double? ovosMes;
+  double? pesoOvo;
 
   AnaliseAnimalPostura({
     this.ovosMes,

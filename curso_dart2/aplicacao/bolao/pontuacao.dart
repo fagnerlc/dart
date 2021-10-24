@@ -1,24 +1,24 @@
 double somaPontuacao(
-  double pontoAtual,
-  String resultado,
-  double multiplicador,
+  double? pontoAtual,
+  String? resultado,
+  double? multiplicador,
 ) {
-  double pontoRodada;
+  double? pontoRodada;
 
   (resultado == "Cravado")
-      ? pontoRodada = 7 * multiplicador
+      ? pontoRodada = 7 * multiplicador!
       : (resultado == "Acertou o VED + Diferença de gols")
-          ? pontoRodada = 5 * multiplicador
+          ? pontoRodada = 5 * multiplicador!
           : (resultado == "Acertou o VED + Placar de um time")
-              ? pontoRodada = 4 * multiplicador
+              ? pontoRodada = 4 * multiplicador!
               : (resultado == "Apostou em VED")
                   ? pontoRodada = 4
                   : (resultado == "Acertou o VED")
-                      ? pontoRodada = 3 * multiplicador
+                      ? pontoRodada = 3 * multiplicador!
                       : (resultado == "Diferença de gols")
-                          ? pontoRodada = 2 * multiplicador
+                          ? pontoRodada = 2 * multiplicador!
                           : (resultado == "Placar de um time")
-                              ? pontoRodada = 1 * multiplicador
+                              ? pontoRodada = 1 * multiplicador!
                               : 'Não foi possível calcular pontuação';
 
 /*
@@ -41,10 +41,10 @@ double somaPontuacao(
 
 // TODO lembrar de pensar em uma alternativa para jogadores que marcarem a tabela antes do campeonato começar ou no inicio do campeonato
 
-  pontoAtual = pontoAtual + pontoRodada;
+  pontoAtual = pontoAtual! + pontoRodada!;
   return pontoAtual;
 }
 
 main() {
-  print(somaPontuacao(6, "Placar de um time", 1.1));
+  print('Resultado: ${somaPontuacao(6, "Placar de um time", 1.1)}');
 }

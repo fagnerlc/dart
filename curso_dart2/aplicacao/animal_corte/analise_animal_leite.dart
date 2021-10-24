@@ -1,7 +1,7 @@
 class AnaliseAnimalLeite {
-  double valorKg;
-  double valorLitro;
-  double litroDia;
+  double? valorKg;
+  double? valorLitro;
+  double? litroDia;
 
   AnaliseAnimalLeite({
     this.valorKg,

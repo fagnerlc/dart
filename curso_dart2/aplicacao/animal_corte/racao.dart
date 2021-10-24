@@ -1,9 +1,9 @@
 class Racao {
-  String marca;
-  String titulo;
-  String descricao;
-  double valor;
-  String dosagemPorte;
+  String? marca;
+  String? titulo;
+  String? descricao;
+  double? valor;
+  String? dosagemPorte;
 
   Racao({
     this.marca,

@@ -1,11 +1,11 @@
 import 'animal.dart';
 
 class Gestacao {
-  List<Animal> filhos;
-  String tempo;
-  int perda;
-  int quantidadeNasce;
-  Animal reprodutor;
+  List<Animal>? filhos;
+  String? tempo;
+  int? perda;
+  int? quantidadeNasce;
+  Animal? reprodutor;
 
   Gestacao({
     this.filhos,
