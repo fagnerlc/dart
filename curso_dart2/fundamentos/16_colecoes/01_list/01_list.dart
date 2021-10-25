@@ -44,7 +44,7 @@ listForEach() {
     ..sort(); //ordena a lista de forma crescente
   print('\n$numeros');
 
-  List<dynamic> lista = List(2); // fixa o numero de elementos
+  List<dynamic> lista = []; // fixa o numero de elementos
   lista = numeros.take(3).skip(1).take(2).toList();
   print('lista: $lista');
 
@@ -85,10 +85,12 @@ listExpand() {
   List<int> inteiros = [1, 5, 10];
   List<double> doubles = [2.5, 7.25];
 
-  List<dynamic> listaDinamica = List(1);
+  List<dynamic> listaDinamica = [];
   print('$listaDinamica');
   print(listaDinamica = [1, 5, 10] + [2, 7]);
-  print(listaDinamica = []..addAll(inteiros)..addAll(doubles));
+  print(listaDinamica = []
+    ..addAll(inteiros)
+    ..addAll(doubles));
   print(listaDinamica);
   print(listaDinamica = [0, ...inteiros, 15]); // operador spread (espalhar ...)
   print(listaDinamica = [
@@ -173,7 +175,7 @@ listWhere() {
   int menor = idades.lastWhere((element) => element.toString().startsWith('1'));
   int menor1 = idades.firstWhere(
       (element) => element.toString().startsWith('0'),
-      orElse: () => null);
+      orElse: () => 0);
 
   print('adultos: ${adultos} menor: $menor, $menor1 crianca: $crianca');
 
